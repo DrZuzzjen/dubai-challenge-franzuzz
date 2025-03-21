@@ -64,7 +64,7 @@ def home():
     st.subheader("The Ultimate Space Travel Experience")
     
     # Add logo below the title
-    st.image("logo.jpg", use_container_width=True)
+    #st.image("logo.jpg", use_container_width=True)
     
     col1, col2 = st.columns([2, 1])
     
