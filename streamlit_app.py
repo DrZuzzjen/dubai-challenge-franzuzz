@@ -46,7 +46,7 @@ def navigation():
     st.sidebar.title("Dubai Space Travel 🚀")
     
     # Add Dubai skyline image to sidebar
-    st.sidebar.image("https://i.imgur.com/XO5fpwa.jpg", use_column_width=True)
+    st.sidebar.image("logo.jpg", width=50)
     
     menu = st.sidebar.radio(
         "Navigation",
@@ -62,6 +62,9 @@ def navigation():
 def home():
     st.title("Dubai to the Stars 🚀")
     st.subheader("The Ultimate Space Travel Experience")
+    
+    # Add logo below the title
+    st.image("logo.jpg", use_container_width=True)
     
     col1, col2 = st.columns([2, 1])
     
@@ -578,23 +581,22 @@ def main():
     if 'menu' not in st.session_state:
         st.session_state.menu = "Home"
     
-    # Get menu from navigation or session state
+    # Get menu from navigation
     menu = navigation()
     
-    # Override menu if set in session state
-    if st.session_state.menu != menu:
-        menu = st.session_state.menu
+    # Update session state with the current menu selection
+    st.session_state.menu = menu
     
     # Display selected page
-    if menu == "Home":
+    if st.session_state.menu == "Home":
         home()
-    elif menu == "Book a Trip":
+    elif st.session_state.menu == "Book a Trip":
         book_trip()
-    elif menu == "Pricing & Packages":
+    elif st.session_state.menu == "Pricing & Packages":
         pricing_packages()
-    elif menu == "Accommodations":
+    elif st.session_state.menu == "Accommodations":
         accommodations_page()
-    elif menu == "User Dashboard":
+    elif st.session_state.menu == "User Dashboard":
         user_dashboard()
 
 if __name__ == "__main__":
